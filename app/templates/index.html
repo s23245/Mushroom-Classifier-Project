@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mushroom Image Analyzer</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <h1 class="mb-4">Mushroom Image Analyzer</h1>
+
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="file">Choose a mushroom image:</label>
+                <input type="file" class="form-control-file" name="file" accept="image/*">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Upload and Analyze</button>
+        </form>
+
+        {% if result %}
+            <div class="mt-4">
+                <h2>Analysis Result:</h2>
+                <p>{{ result }}</p>
+            </div>
+        {% endif %}
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
